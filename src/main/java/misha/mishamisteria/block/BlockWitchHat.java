@@ -121,6 +121,7 @@ public class BlockWitchHat extends MishaBasicBlock implements ITileEntityProvide
                 stackItemHandler.insertItem(i, itemHandler.getStackInSlot(i), false);
             }
 
+            // TODO: Make sure it is not drop by creative player
             spawnAsEntity(worldIn, pos, stack);
         }
 
