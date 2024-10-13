@@ -1,8 +1,9 @@
-package misha.mishamisteria.client.gui;
+package misha.mishamysteria.client.gui;
 
-import misha.mishamisteria.client.container.ContainerWitchHat;
+import misha.mishamysteria.client.container.ContainerWitchHat;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;

@@ -1,7 +1,7 @@
-package misha.mishamisteria.client.container;
+package misha.mishamysteria.client.container;
 
-import misha.mishamisteria.block.tileentity.TileEntityWitchHat;
-import misha.mishamisteria.item.ItemWitchHat;
+import misha.mishamysteria.block.tileentity.TileEntityWitchHat;
+import misha.mishamysteria.item.ItemWitchHat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;

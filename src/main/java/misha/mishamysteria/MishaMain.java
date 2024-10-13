@@ -1,8 +1,8 @@
-package misha.mishamisteria;
+package misha.mishamysteria;
 
-import misha.mishamisteria.block.MishaBlocks;
-import misha.mishamisteria.client.MishaGuiHandlers;
-import misha.mishamisteria.item.MishaItems;
+import misha.mishamysteria.block.MishaBlocks;
+import misha.mishamysteria.client.MishaGuiHandlers;
+import misha.mishamysteria.item.MishaItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;

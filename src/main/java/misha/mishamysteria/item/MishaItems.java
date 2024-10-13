@@ -1,8 +1,8 @@
-package misha.mishamisteria.item;
+package misha.mishamysteria.item;
 
-import misha.mishamisteria.MishaMain;
-import misha.mishamisteria.Tags;
-import misha.mishamisteria.utils.ClassUtils;
+import misha.mishamysteria.MishaMain;
+import misha.mishamysteria.Tags;
+import misha.mishamysteria.utils.ClassUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.registries.IForgeRegistry;

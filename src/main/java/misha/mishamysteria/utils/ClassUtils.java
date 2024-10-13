@@ -1,4 +1,4 @@
-package misha.mishamisteria.utils;
+package misha.mishamysteria.utils;
 
 public class ClassUtils {
 

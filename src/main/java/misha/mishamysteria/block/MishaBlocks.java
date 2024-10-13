@@ -1,6 +1,6 @@
-package misha.mishamisteria.block;
+package misha.mishamysteria.block;
 
-import misha.mishamisteria.abstracts.MishaBasicBlock;
+import misha.mishamysteria.abstracts.MishaBasicBlock;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;

@@ -1,9 +1,9 @@
-package misha.mishamisteria.abstracts;
+package misha.mishamysteria.abstracts;
 
-import misha.mishamisteria.MishaMain;
-import misha.mishamisteria.Tags;
-import misha.mishamisteria.block.MishaBlocks;
-import misha.mishamisteria.utils.ClassUtils;
+import misha.mishamysteria.MishaMain;
+import misha.mishamysteria.Tags;
+import misha.mishamysteria.block.MishaBlocks;
+import misha.mishamysteria.utils.ClassUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

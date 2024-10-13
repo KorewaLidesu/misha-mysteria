@@ -1,6 +1,6 @@
-package misha.mishamisteria.block.tileentity;
+package misha.mishamysteria.block.tileentity;
 
-import misha.mishamisteria.handlers.MishaStorageWrapper;
+import misha.mishamysteria.handlers.MishaStorageWrapper;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;

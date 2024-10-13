@@ -1,9 +1,9 @@
-package misha.mishamisteria.item;
+package misha.mishamysteria.item;
 
-import misha.mishamisteria.MishaMain;
-import misha.mishamisteria.block.MishaBlocks;
-import misha.mishamisteria.client.MishaGuiHandlers;
-import misha.mishamisteria.handlers.MishaStorageWrapper;
+import misha.mishamysteria.MishaMain;
+import misha.mishamysteria.block.MishaBlocks;
+import misha.mishamysteria.client.MishaGuiHandlers;
+import misha.mishamysteria.handlers.MishaStorageWrapper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemBlock;

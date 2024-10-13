@@ -1,4 +1,4 @@
-package misha.mishamisteria.handlers;
+package misha.mishamysteria.handlers;
 
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

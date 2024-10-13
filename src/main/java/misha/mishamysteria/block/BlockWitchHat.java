@@ -1,10 +1,10 @@
-package misha.mishamisteria.block;
+package misha.mishamysteria.block;
 
-import misha.mishamisteria.MishaMain;
-import misha.mishamisteria.abstracts.MishaBasicBlock;
-import misha.mishamisteria.client.MishaGuiHandlers;
-import misha.mishamisteria.item.ItemWitchHat;
-import misha.mishamisteria.block.tileentity.TileEntityWitchHat;
+import misha.mishamysteria.MishaMain;
+import misha.mishamysteria.abstracts.MishaBasicBlock;
+import misha.mishamysteria.client.MishaGuiHandlers;
+import misha.mishamysteria.item.ItemWitchHat;
+import misha.mishamysteria.block.tileentity.TileEntityWitchHat;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -1,7 +1,7 @@
-package misha.mishamisteria.client;
+package misha.mishamysteria.client;
 
-import misha.mishamisteria.client.container.ContainerWitchHat;
-import misha.mishamisteria.client.gui.GuiWitchHat;
+import misha.mishamysteria.client.container.ContainerWitchHat;
+import misha.mishamysteria.client.gui.GuiWitchHat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
