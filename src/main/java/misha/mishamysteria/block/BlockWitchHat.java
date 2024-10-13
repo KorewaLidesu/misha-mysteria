@@ -29,6 +29,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlockWitchHat extends MishaBasicBlock implements ITileEntityProvider {
+
     public BlockWitchHat() {
         super(Material.CLOTH);
         setCreativeTab(MishaMain.MishaCreativeTabs.MISHA_ITEMS);
@@ -143,4 +144,5 @@ public class BlockWitchHat extends MishaBasicBlock implements ITileEntityProvide
         playerIn.openGui(MishaMain.instance, MishaGuiHandlers.GuiWitchHat_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
+
 }
