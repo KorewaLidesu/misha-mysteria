@@ -1,5 +1,7 @@
 package misha.mishamisteria;
 
+import misha.mishamisteria.block.MishaBlocks;
+import misha.mishamisteria.item.MishaItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,8 +22,11 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.Nonnull;
+
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
 @Mod.EventBusSubscriber
+@SuppressWarnings("unused")
 public class MishaMain {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
@@ -54,23 +59,29 @@ public class MishaMain {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         //register blocks here using registry
         IForgeRegistry<Block> registry = event.getRegistry();
-
+        MishaBlocks.register(registry);
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         //register items here like we did with the blocks
         IForgeRegistry<Item> registry = event.getRegistry();
-
+        MishaItems.register(registry);
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void initModels(ModelRegistryEvent event) {
         //register models here
-
+        MishaBlocks.MISHA_BLOCKS_LIST.forEach(block -> registerModel(Item.getItemFromBlock(block)));
+        MishaItems.MISHA_ITEMS_LIST.forEach(MishaMain::registerModel);
     }
 
+    /**
+     * Register model for item
+     * Suppress warning since object should have registry name by default
+     */
+    @SuppressWarnings("ConstantConditions")
     private static void registerModel(Item item) {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
@@ -79,13 +90,16 @@ public class MishaMain {
         public static final CreativeTabs MISHA_BLOCKS = new CreativeTabs( "mishaBlocks")
         {
             @SideOnly(Side.CLIENT)
+            @Nonnull
             public ItemStack createIcon() { return new ItemStack(Item.getItemFromBlock(net.minecraft.init.Blocks.BRICK_BLOCK)); }
         };
 
         public static final CreativeTabs MISHA_ITEMS = new CreativeTabs("mishaItems")
         {
             @SideOnly(Side.CLIENT)
+            @Nonnull
             public ItemStack createIcon() { return new ItemStack(Items.GOLDEN_HELMET); }
         };
     }
+
 }
