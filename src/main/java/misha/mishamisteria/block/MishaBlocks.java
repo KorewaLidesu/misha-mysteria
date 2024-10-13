@@ -8,13 +8,15 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.ArrayList;
 import java.util.List;
 
+// Suppress due to object being queued via list or other mods using the object
+@SuppressWarnings("unused")
 public class MishaBlocks {
 
     // Modded blocks list
     public static final List<MishaBasicBlock> MISHA_BLOCKS_LIST = new ArrayList<>();
 
     // Block instance
-    // public static final BlockWitchHat BLOCK_WITCH_HAT = new BlockWitchHat();
+    public static final BlockWitchHat BLOCK_WITCH_HAT = new BlockWitchHat();
 
     /**
      * Registering blocks via list

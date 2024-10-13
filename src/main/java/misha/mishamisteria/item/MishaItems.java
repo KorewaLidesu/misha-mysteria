@@ -10,13 +10,15 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.ArrayList;
 import java.util.List;
 
+// Suppress due to object being queued via list or other mods using the object
+@SuppressWarnings("unused")
 public class MishaItems {
 
     // Modded items list
     public static final List<Item> MISHA_ITEMS_LIST = new ArrayList<>();
 
     // Item instance
-    // public static final Item WITCH_HAT = registerItem(new ItemWitchHat());
+    public static final ItemWitchHat WITCH_HAT = registerItem(new ItemWitchHat());
 
     // Registering items via list
     public static void register(IForgeRegistry<Item> registry) {
