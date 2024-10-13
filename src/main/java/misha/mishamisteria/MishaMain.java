@@ -1,6 +1,7 @@
 package misha.mishamisteria;
 
 import misha.mishamisteria.block.MishaBlocks;
+import misha.mishamisteria.client.MishaGuiHandlers;
 import misha.mishamisteria.item.MishaItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -47,6 +49,7 @@ public class MishaMain {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         // registering mod gui handler
+        NetworkRegistry.INSTANCE.registerGuiHandler(MishaMain.instance, new MishaGuiHandlers());
 
     }
 
@@ -74,6 +77,7 @@ public class MishaMain {
     public static void initModels(ModelRegistryEvent event) {
         //register models here
         MishaBlocks.MISHA_BLOCKS_LIST.forEach(block -> registerModel(Item.getItemFromBlock(block)));
+
         MishaItems.MISHA_ITEMS_LIST.forEach(MishaMain::registerModel);
     }
 
