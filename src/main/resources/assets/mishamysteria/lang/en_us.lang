@@ -1,0 +1,12 @@
+# Items
+#item.testassets.first_item.name=First Item
+
+# Blocks
+tile.misha.block.witch_hat.name=Witch Hat
+
+# Creative Tabs
+itemGroup.mishaBlocks=Misha's Blocks
+itemGroup.mishaItems=Misha's Items
+
+# GUI
+gui.misha.witch_hat.inv=Witch Hat Storage
