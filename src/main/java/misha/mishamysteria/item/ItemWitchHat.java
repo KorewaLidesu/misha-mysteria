@@ -32,15 +32,12 @@ public class ItemWitchHat extends ItemBlock {
         // Make sure we are interact on physical server side
         if (!world.isRemote) {
             ItemStack is = player.getHeldItem(hand);
-            this.openStorage(player);
+            // open gui
+            player.openGui(MishaMain.instance, MishaGuiHandlers.WITCH_HAT.ordinal(), player.world, 0, -1, 0);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }
 
         return super.onItemRightClick(world, player, hand);
-    }
-
-    private void openStorage(EntityPlayer player) {
-        player.openGui(MishaMain.instance, MishaGuiHandlers.GuiWitchHat_ID, player.world, 0, -1, 0);
     }
 
     @Override
