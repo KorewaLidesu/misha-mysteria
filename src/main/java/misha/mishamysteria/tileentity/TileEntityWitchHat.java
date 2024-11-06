@@ -1,4 +1,4 @@
-package misha.mishamysteria.block.tileentity;
+package misha.mishamysteria.tileentity;
 
 import misha.mishamysteria.handlers.MishaStorageWrapper;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,6 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class TileEntityWitchHat extends TileEntity {
+
     private MishaStorageWrapper inv;
 
     @Override
@@ -34,7 +35,6 @@ public class TileEntityWitchHat extends TileEntity {
         super.readFromNBT(compound);
 
         if (this.inv == null) this.inv = new MishaStorageWrapper(27);
-        inv.appendEvent(ignore -> this.markDirty());
 
         this.inv.deserializeNBT(compound.getCompoundTag("inv"));
     }

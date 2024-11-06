@@ -7,6 +7,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
 
@@ -18,9 +19,9 @@ public class GuiWitchHat extends GuiContainer {
     /** Window height is calculated with these values; the more rows, the higher */
     private final int inventoryRows;
 
-    public GuiWitchHat(EntityPlayer player, World world, int x, int y, int z, IItemHandler itemHandler)
+    public GuiWitchHat(EntityPlayer player, World world, BlockPos blockPos, IItemHandler itemHandler)
     {
-        super(new ContainerWitchHat(player, world, x, y, z, itemHandler));
+        super(new ContainerWitchHat(player, world, blockPos, itemHandler));
         this.playerInventory = player.inventory;
         this.inventoryRows = itemHandler.getSlots() / 9;
         this.ySize = 114 + this.inventoryRows * 18;

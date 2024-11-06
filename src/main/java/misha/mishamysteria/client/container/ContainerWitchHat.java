@@ -1,7 +1,7 @@
 package misha.mishamysteria.client.container;
 
-import misha.mishamysteria.block.tileentity.TileEntityWitchHat;
 import misha.mishamysteria.item.ItemWitchHat;
+import misha.mishamysteria.tileentity.TileEntityWitchHat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
@@ -16,17 +16,11 @@ import javax.annotation.Nonnull;
 
 public class ContainerWitchHat extends Container {
 
-    private final World world;
-    private final int posX;
-    private final int posY;
-    private final int posZ;
+    private final BlockPos blockPos;
     private final int numRows;
 
-    public ContainerWitchHat(EntityPlayer player, World world, int x, int y, int z, IItemHandler itemHandler) {
-        this.world = world;
-        this.posX = x;
-        this.posY = y;
-        this.posZ = z;
+    public ContainerWitchHat(EntityPlayer player, World world, BlockPos blockPos, IItemHandler itemHandler) {
+        this.blockPos = blockPos;
 
         this.numRows = itemHandler.getSlots() / 9;
 
@@ -36,7 +30,20 @@ public class ContainerWitchHat extends Container {
         {
             for (int k = 0; k < 9; ++k)
             {
-                this.addSlotToContainer(new SlotItemHandler(itemHandler, k + j * 9, 8 + k * 18, 18 + j * 18));
+                this.addSlotToContainer(new SlotItemHandler(itemHandler, k + j * 9, 8 + k * 18, 18 + j * 18) {
+
+                    private final BlockPos pos = blockPos;
+
+                    @Override
+                    public void onSlotChange(@Nonnull ItemStack p_75220_1_, @Nonnull ItemStack p_75220_2_)
+                    {
+                        // Make sure block loaded first before retrieve TE
+                        if (pos == null || !world.isBlockLoaded(pos)) return;
+
+                        TileEntity te = world.getTileEntity(pos);
+                        if (te instanceof TileEntityWitchHat) te.markDirty();
+                    }
+                });
             }
         }
 
@@ -97,8 +104,7 @@ public class ContainerWitchHat extends Container {
 
     @Override
     public boolean canInteractWith(@Nonnull EntityPlayer playerIn) {
-        TileEntity tileEntity = world.getTileEntity(new BlockPos(posX, posY, posZ));
-        if (tileEntity instanceof TileEntityWitchHat) {
+        if (blockPos != null) {
             return true;
         }
         ItemStack stack = playerIn.getHeldItemMainhand();
