@@ -8,13 +8,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class MishaStorageWrapper extends ItemStackHandler implements ICapabilityProvider {
-
-    private final List<Consumer<?>> onChangedEvent = new ArrayList<>();
 
     public MishaStorageWrapper(int size) {
         super(size);
@@ -33,15 +28,5 @@ public class MishaStorageWrapper extends ItemStackHandler implements ICapability
             return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(this);
         }
         return null;
-    }
-
-    public void appendEvent(Consumer<?> onChangedEvent) {
-        this.onChangedEvent.add(onChangedEvent);
-    }
-
-    @Override
-    protected void onContentsChanged(int slot) {
-        onChangedEvent.forEach(it -> it.accept(null));
-        super.onContentsChanged(slot);
     }
 }
