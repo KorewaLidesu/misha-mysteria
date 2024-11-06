@@ -2,7 +2,8 @@
 #item.testassets.first_item.name=First Item
 
 # Blocks
-tile.misha.block.witch_hat.name=Witch Hat
+tile.misha.witch_hat.name=Witch Hat
+tile.misha.hand_basket.name=Hand Basket
 
 # Creative Tabs
 itemGroup.mishaBlocks=Misha's Blocks
