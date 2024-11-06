@@ -20,6 +20,8 @@ public class MishaBlocks {
 
     // Block instance
     public static final BlockWitchHat BLOCK_WITCH_HAT = new BlockWitchHat();
+    public static final BlockCirno BLOCK_CIRNO = registerBlock(new BlockCirno());
+    public static final BlockFumoCirno BLOCK_FUMO_CIRNO = registerBlock(new BlockFumoCirno());
     public static final BlockHandBasket BLOCK_HAND_BASKET = registerBlock(new BlockHandBasket(), MishaMain.MishaCreativeTabs.MISHA_ITEMS);
     public static final BlockWitchHat BLOCK_WITCH_HAT = registerBlock(new BlockWitchHat(), MishaMain.MishaCreativeTabs.MISHA_ITEMS);
 

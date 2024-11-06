@@ -2,6 +2,8 @@
 #item.testassets.first_item.name=First Item
 
 # Blocks
+tile.misha.cirno.name=チルノ
+tile.misha.fumo_cirno.name=Fumo チルノ
 tile.misha.witch_hat.name=Witch Hat
 tile.misha.hand_basket.name=Hand Basket
 
