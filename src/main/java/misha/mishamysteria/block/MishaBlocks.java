@@ -19,7 +19,6 @@ public class MishaBlocks {
     public static final List<Block> MISHA_BLOCKS_LIST = new ArrayList<>();
 
     // Block instance
-    public static final BlockWitchHat BLOCK_WITCH_HAT = new BlockWitchHat();
     public static final BlockCirno BLOCK_CIRNO = registerBlock(new BlockCirno());
     public static final BlockFumoCirno BLOCK_FUMO_CIRNO = registerBlock(new BlockFumoCirno());
     public static final BlockHandBasket BLOCK_HAND_BASKET = registerBlock(new BlockHandBasket(), MishaMain.MishaCreativeTabs.MISHA_ITEMS);
