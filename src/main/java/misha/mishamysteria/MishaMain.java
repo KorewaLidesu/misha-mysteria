@@ -3,16 +3,14 @@ package misha.mishamysteria;
 import misha.mishamysteria.block.MishaBlocks;
 import misha.mishamysteria.client.MishaGuiHandlers;
 import misha.mishamysteria.item.MishaItems;
+import misha.mishamysteria.proxy.IProxy;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -36,6 +34,9 @@ public class MishaMain {
     @Mod.Instance(Tags.MOD_ID)
     public static MishaMain instance;
 
+    @SidedProxy(clientSide = "misha.mishamysteria.proxy.ClientProxy", serverSide = "misha.mishamysteria.proxy.ServerProxy")
+    public static IProxy proxy;
+
     /**
      * <a href="https://cleanroommc.com/wiki/forge-mod-development/event#overview">
      *     Take a look at how many FMLStateEvents you can listen to via the @Mod.EventHandler annotation here
@@ -44,18 +45,19 @@ public class MishaMain {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER.info("Hello From {}!", Tags.MOD_NAME);
+        proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         // registering mod gui handler
-        NetworkRegistry.INSTANCE.registerGuiHandler(MishaMain.instance, new MishaGuiHandlers());
-
+        NetworkRegistry.INSTANCE.registerGuiHandler(MishaMain.instance, MishaGuiHandlers.INSTANCE);
+        proxy.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        proxy.postInit(event);
     }
 
     @SubscribeEvent
@@ -72,37 +74,19 @@ public class MishaMain {
         MishaItems.register(registry);
     }
 
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public static void initModels(ModelRegistryEvent event) {
-        //register models here
-        MishaBlocks.MISHA_BLOCKS_LIST.forEach(block -> registerModel(Item.getItemFromBlock(block)));
-
-        MishaItems.MISHA_ITEMS_LIST.forEach(MishaMain::registerModel);
-    }
-
-    /**
-     * Register model for item
-     * Suppress warning since object should have registry name by default
-     */
-    @SuppressWarnings("ConstantConditions")
-    private static void registerModel(Item item) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
-
     public static class MishaCreativeTabs {
         public static final CreativeTabs MISHA_BLOCKS = new CreativeTabs( "mishaBlocks")
         {
             @SideOnly(Side.CLIENT)
             @Nonnull
-            public ItemStack createIcon() { return new ItemStack(Item.getItemFromBlock(net.minecraft.init.Blocks.BRICK_BLOCK)); }
+            public ItemStack createIcon() { return new ItemStack(Item.getItemFromBlock(MishaBlocks.BLOCK_CIRNO)); }
         };
 
         public static final CreativeTabs MISHA_ITEMS = new CreativeTabs("mishaItems")
         {
             @SideOnly(Side.CLIENT)
             @Nonnull
-            public ItemStack createIcon() { return new ItemStack(Items.GOLDEN_HELMET); }
+            public ItemStack createIcon() { return new ItemStack(MishaItems.WITCH_HAT); }
         };
     }
 
