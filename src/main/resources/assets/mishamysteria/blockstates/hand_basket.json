@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mishamysteria:hand_basket"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "facing": {
+      "north": {"y": 0 },
+      "east":  {"y": 90 },
+      "south": {"y": 0 },
+      "west":  {"y": 90 }
+    }
+  }
+}

@@ -4,6 +4,7 @@
         "model": "mishamysteria:witch_hat"
     },
     "variants": {
-        "normal": [{}]
+        "normal": [{}],
+        "inventory": [{}]
     }
 }
