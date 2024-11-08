@@ -20,6 +20,7 @@ public class MishaItems {
 
     // Item instance
     public static final ItemWitchHat WITCH_HAT = registerItem(new ItemWitchHat());
+    public static final ItemBackpack BACKPACK = registerItem(new ItemBackpack());
 
     // Registering items via list
     public static void register(IForgeRegistry<Item> registry) {
