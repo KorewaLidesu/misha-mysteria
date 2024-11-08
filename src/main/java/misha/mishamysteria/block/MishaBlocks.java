@@ -35,8 +35,12 @@ public class MishaBlocks {
     public static <T extends IForgeRegistryEntry.Impl<Block>> void register(IForgeRegistry<Block> registry) {
         MISHA_BLOCKS_LIST.forEach(it -> {
             registry.register(it);
-            if (it instanceof IMishaTEProvider && ((IMishaTEProvider) it).getTileEntityClass() != null) {
-                GameRegistry.registerTileEntity(((IMishaTEProvider) it).getTileEntityClass(), it.getRegistryName());
+            if (it instanceof IMishaTEProvider) {
+                Class<? extends TileEntity> teClass = ((IMishaTEProvider) it).getTileEntityClass();
+                // We only need to register the TE class once
+                if (teClass != null && TileEntity.getKey(teClass) == null) {
+                    GameRegistry.registerTileEntity(((IMishaTEProvider) it).getTileEntityClass(), it.getRegistryName());
+                }
             }
         });
     }
