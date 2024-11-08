@@ -40,7 +40,7 @@ public class MishaItems {
         String item_name = item instanceof ItemBlock ?
                 ((ItemBlock) item).getBlock().getRegistryName().getPath() : ClassUtils.getSimpleClassName(item.getClass());
         item.setRegistryName(Tags.MOD_ID, item_name);
-        item.setTranslationKey("misha.item." + item_name);
+        item.setTranslationKey("misha." + item_name);
         MISHA_ITEMS_LIST.add(item);
         return item;
     }
