@@ -6,6 +6,7 @@ import misha.mishamysteria.block.interfaces.IMishaTEProvider;
 import misha.mishamysteria.utils.ClassUtils;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
